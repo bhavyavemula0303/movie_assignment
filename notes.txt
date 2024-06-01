@@ -1,0 +1,14 @@
+1)login or signup---done
+2)home screen
+  2.1 search bar
+  2.2 below search bar their should be mves
+  2.3 if u select the particular mve u should get details of the mve
+3)user should select to create a list for mves
+4)list created by the user shuld be displayed on homepage
+components:
+1.login
+2.signup
+3.search bar
+4.mve list
+5.details_mve
+6.create_list 
