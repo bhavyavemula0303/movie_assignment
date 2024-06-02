@@ -7,7 +7,7 @@ const Login=()=>{
     return(
         <div className="addUser">
             <h3>Sign In</h3>
-            <form className='addUserForm' action='/Signup' method='GET'>
+            <form className='addUserForm' action='/List' method='GET'>
                 <div className='inputGroup'>
                     <label htmlFor='email'>Email:</label>
                     <input
@@ -27,16 +27,13 @@ const Login=()=>{
 
                                    
                 </div>
-                <div className='login'>
-                <p>Don't have account?</p>
-                <input type='submit' value='Signup'/>
-            </div>
+                
             </form>
-            {/* <div className='login'>
+            <div className='login'>
                 <p>Don't have account?</p>
-                <Link to="/" type="submit" class="btn btn-success">Sign Up</Link>
+                <Link to="/Signup" type="submit" class="btn btn-success">Sign Up</Link>
 
-            </div> */}
+            </div>
         </div>
        
     );
@@ -44,4 +41,4 @@ const Login=()=>{
     
 };
 
-export default Login 
+export default Login;

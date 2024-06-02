@@ -9,11 +9,12 @@ import RemoveFavourites from "../components/RemoveFavourites";
 
 
 const List= () => {
-    const[movies,setMovies]=useState([]);
+    const tempMovies = ["movie1","movie2","movie3","movie4","movie5","movie6", ]
+    const[movies,setMovies]=useState(tempMovies);
     const [favourites,setFavourites]=useState([]);
     const [searchValue,setSearchValue]=useState('');
         const getMovieRequest=async(searchValue)=>{
-            const url= 'http://www.omdbapi.com/?s=${searchValue}&apikey=41ed827b'
+            const url= `http://www.omdbapi.com/?s=star wars&apikey=41ed827b`
             const response= await fetch (url);
             const responseJson = await response.json();
             if(responseJson.Search){
