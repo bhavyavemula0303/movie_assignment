@@ -1,35 +1,62 @@
-body {
-	background: #141414;
-	color: #ffffff;
+.MovieList{
+    display: flex;
+    width: 100vw;
+    overflow-x: scroll;
 }
 
-.movie-app > .row {
-	overflow-x: auto;
-	flex-wrap: nowrap;
+.movie-detail{
+    display: flex;
+    flex-direction: column;
 }
 
-.image-container {
-	position: relative;
-	transition: transform 0.2s;
+img{
+    border-radius: 5px;
 }
 
-.image-container:hover {
-	cursor: pointer;
-	transform: scale(1.1);
+.List{
+    padding-left: 3vh;
+    padding-right: 7vh;
 }
 
-.image-container:hover .overlay {
-	opacity: 1;
+.addUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 10vh;
 }
 
-.overlay {
-	position: absolute;
-	background: rgba(0, 0, 0, 0.8);
-	width: 100%;
-	transition: 0.5s ease;
-	opacity: 0;
-	bottom: 0;
-	font-size: 20px;
-	padding: 20px;
-	text-align: center;
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vh;
+}
+
+.inputGroup input{
+    background-color: transparent;
+    border: 1px solid white;
+    margin: 1vh 1vh 3vh 1vh;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    color: white;
+    padding-left: 1vw;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.login{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.login p{
+    float: left;
 }

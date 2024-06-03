@@ -1,11 +1,13 @@
 body {
-	background: #141414;
+	/* background-image: radial-gradient(black,black,black,rgb(12, 2, 24),rgb(12, 2, 24)); */
+	background-image: radial-gradient(rgb(16, 3, 32),rgb(12, 2, 24),rgb(9, 1, 18),black);
 	color: #ffffff;
 }
 
 .movie-app > .row {
 	overflow-x: auto;
 	flex-wrap: nowrap;
+	display: flex;
 }
 
 .image-container {
@@ -15,7 +17,7 @@ body {
 
 .image-container:hover {
 	cursor: pointer;
-	transform: scale(1.1);
+	transform: scale(1.03);
 }
 
 .image-container:hover .overlay {
@@ -29,7 +31,7 @@ body {
 	transition: 0.5s ease;
 	opacity: 0;
 	bottom: 0;
-	font-size: 20px;
+	/* font-size: 20px; */
 	padding: 20px;
 	text-align: center;
 }

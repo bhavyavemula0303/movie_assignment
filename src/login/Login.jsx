@@ -1,44 +1,72 @@
-import React from 'react';
-import "./login.css";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import Signup from '../signup/Signup';
+import { getUserDetails } from "../services/userService";
+import { UserContext } from "../services/userService";
+import "../App.css";
 
-const Login=()=>{
-    return(
-        <div className="addUser">
-            <h3>Sign In</h3>
-            <form className='addUserForm' action='/List' method='GET'>
-                <div className='inputGroup'>
-                    <label htmlFor='email'>Email:</label>
-                    <input
-                    type='email'
-                    id="email"
-                    autoComplete='off'
-                    placeholder='Enter your Email'
-                    />
-                    <label htmlFor='name'>Password:</label>
-                    <input
-                    type='password'
-                    id="password"
-                    autoComplete='off'
-                    placeholder='Enter Pssword'
-                    />
-                    <button type="submit" class="btn btn-primary">Login</button>
+const Login = () => {
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
 
-                                   
-                </div>
-                
-            </form>
-            <div className='login'>
-                <p>Don't have account?</p>
-                <Link to="/Signup" type="submit" class="btn btn-success">Sign Up</Link>
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setCredentials({
+      ...credentials,
+      [id]: value,
+    });
+  };
 
-            </div>
+  const { setUser } = useContext(UserContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = getUserDetails(credentials.email, credentials.password);
+    if (user) {
+      alert("Login successful");
+      setUser(user);
+      window.location.href = "/List";
+    } else {
+      alert("Invalid email or password");
+    }
+  };
+
+  return (
+    <div className="addUser">
+      <h3>Sign In</h3>
+      <form className="addUserForm" onSubmit={handleSubmit}>
+        <div className="inputGroup">
+          <input
+            type="email"
+            id="email"
+            autoComplete="off"
+            placeholder="Enter your Email"
+            value={credentials.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            autoComplete="off"
+            placeholder="Enter Password"
+            value={credentials.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" className="btn btn-primary">
+            Login
+          </button>
         </div>
-       
-    );
-        
-    
+      </form>
+      <div className="login">
+        <p>Don't have an account?</p>
+        <Link to="/Signup" className="btn btn-success">
+          Sign Up
+        </Link>
+      </div>
+    </div>
+  );
 };
-
 export default Login;
